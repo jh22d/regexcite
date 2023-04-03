@@ -28,11 +28,17 @@ You can install the development version of regexcite from
 devtools::install_github("jh22d/regexcite")
 ```
 
-## Usage
+## Functions
 
-A fairly common task when dealing with strings is the need to split a
-single string into many parts. This is what `base::strplit()` and
-`stringr::str_split()` do.
+1.  str_split_one()
+
+2.  my_add()
+
+### str_split_one()
+
+\####Usage A fairly common task when dealing with strings is the need to
+split a single string into many parts. This is what `base::strplit()`
+and `stringr::str_split()` do.
 
 ``` r
 (x <- "alfa,bravo,charlie,delta")
@@ -71,3 +77,36 @@ y <- "192.168.0.1"
 str_split_one(y, pattern = stringr::fixed("."))
 #> [1] "192" "168" "0"   "1"
 ```
+
+### my_add()
+
+### Usage
+
+my_add function takes 2 parameters, x and y. The function returns the
+sum of the values x and y.
+
+``` r
+library(regexcite)
+my_add(x = 4, y = 3)
+#> [1] 7
+```
+
+Notice the y parameter will have a default value of 10.
+
+``` r
+regexcite::my_add(5)
+#> [1] 15
+```
+
+Given any of x and y NA, my_add returns NA
+
+``` r
+regexcite::my_add(NA)
+#> [1] NA
+regexcite::my_add(NA,5)
+#> [1] NA
+regexcite::my_add(3, NA)
+#> [1] NA
+```
+
+Note: If eitehr x or y is not numeric value, my_add errors.
